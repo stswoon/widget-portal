@@ -1,8 +1,13 @@
 /.idea
-
 /node_modules
 
 /portal/node_modules
 /portal/.next
 /portal/out
 /portal/next-env.d.ts
+
+/data-service/node_modules
+
+/cms/node_modules
+/cms/.strapi-updater.json
+/cms/dist
