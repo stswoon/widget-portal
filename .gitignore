@@ -1,5 +1,8 @@
 /.idea
+
 /node_modules
-/.next
-/out
-next-env.d.ts
+
+/portal/node_modules
+/portal/.next
+/portal/out
+/portal/next-env.d.ts
