@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "portal:serve": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
+    "portal:build": "next build --experimental-build-mode compile",
+    "portal:start": "next start",
+    "-----": "echo 0",
+    "prettier:fix": "prettier . --write",
     "lint": "next lint"
   },
   "dependencies": {

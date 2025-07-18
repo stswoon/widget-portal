@@ -1,0 +1,11 @@
+.
+
+!/package.json
+!/package-lock.json
+
+!/data-service/db.json
+!/data-service/package.json
+!/data-service/package-lock.json
+
+
+

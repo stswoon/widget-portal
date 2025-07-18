@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "json-server db.json -p 3102"
+    "data-service:start": "json-server db.json -p 3102"
   },
   "author": "",
   "license": "ISC",
