@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_widgets_header_widgets",
+  "info": {
+    "displayName": "HeaderWidget"
+  },
+  "options": {},
+  "attributes": {
+    "menuConfiguration": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

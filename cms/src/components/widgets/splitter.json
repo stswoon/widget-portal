@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_widgets_splitters",
+  "info": {
+    "displayName": "Splitter"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "enumeration",
+      "enum": [
+        "px10",
+        "px20",
+        "px40"
+      ]
+    }
+  },
+  "config": {}
+}

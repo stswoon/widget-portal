@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "urlPattern": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "headerWidget": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::widget-instance.widget-instance"
+    },
+    "contentZone": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::widget-instance.widget-instance"
+    }
+  }
+}

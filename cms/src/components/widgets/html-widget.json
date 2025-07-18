@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_widgets_html_widgets",
+  "info": {
+    "displayName": "HtmlWidget"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

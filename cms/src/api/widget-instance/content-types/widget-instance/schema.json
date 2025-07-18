@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "widget_instances",
+  "info": {
+    "singularName": "widget-instance",
+    "pluralName": "widget-instances",
+    "displayName": "WidgetInstance"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "widget": {
+      "type": "dynamiczone",
+      "components": [
+        "widgets.product-widget",
+        "widgets.product-list",
+        "widgets.html-widget",
+        "widgets.header-widget",
+        "widgets.splitter"
+      ],
+      "required": true,
+      "max": 1
+    }
+  }
+}
