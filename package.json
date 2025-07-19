@@ -5,7 +5,8 @@
   "scripts": {
     "all:install-dependencies": "echo cms && npm --prefix ./cms ci && echo data-service && npm --prefix ./data-service ci && echo portal && npm --prefix ./portal ci",
     "all:build": "echo cms && npm --prefix ./cms run cms:build && echo data-service && npm --prefix ./data-service run data-service:build && echo portal && npm --prefix ./portal run portal:build",
-    "all:start": "concurrently --kill-others \"npm --prefix ./cms run cms:start\" \"npm --prefix ./data-service run data-service:start\" \"npm --prefix ./portal run portal:start\""
+    "all:start": "npm --prefix ./portal run portal:start",
+    "all:start2": "concurrently --kill-others \"npm --prefix ./cms run cms:start\" \"npm --prefix ./data-service run data-service:start\" \"npm --prefix ./portal run portal:start\""
   },
   "dependencies": {
     "concurrently": "^9.2.0"
