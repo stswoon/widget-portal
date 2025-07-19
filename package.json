@@ -1,5 +1,13 @@
 {
   "name": "widget-portal",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "all:install-dependencies": "npm --prefix ./cms ci && npm --prefix ./data-service ci && npm --prefix ./portal ci",
+    "all:build": "npm --prefix ./cms run cms:build && npm --prefix ./data-service run data-service:build && npm --prefix ./portal run portal:build",
+    "all:start": "concurrently --kill-others \"npm --prefix ./cms run cms:start\" \"npm --prefix ./data-service run data-service:start\" \"npm --prefix ./portal run portal:start\""
+  },
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  }
 }
