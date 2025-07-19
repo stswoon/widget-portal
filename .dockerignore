@@ -7,5 +7,30 @@
 !/data-service/package.json
 !/data-service/package-lock.json
 
+!/cms/.strapi
+!/cms/.tmp
+!/cms/config
+!/cms/data
+!/cms/database
+!/cms/public
+!/cms/scripts
+!/cms/src
+!/cms/types
+!/cms/.env
+!/cms/favicon.png
+!/cms/package.json
+!/cms/package-lock.json
+!/cms/tsconfig.json
+
+!/portal/public
+!/portal/src
+!/portal/.prettierignore
+!/portal/.prettierrc
+!/portal/eslint.config.mjs
+!/portal/next.config.ts
+!/portal/package.json
+!/portal/package-lock.json
+!/portal/tsconfig.json
+
 
 

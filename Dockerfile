@@ -1,11 +1,11 @@
-FROM node:22.11.0 as builder
+FROM node:22.11.0-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN npm ci
 RUN npm run all:install-dependencies
-RUN npm all:build
+RUN npm run all:build
 
-FROM node:22.11.0
+FROM node:22.11.0-alpine
 WORKDIR /app
 COPY --from=builder /app/package.json /app/node_modules  ./
 COPY --from=builder /app/portal/.next/standalone ./portal
