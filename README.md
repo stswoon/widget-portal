@@ -2,10 +2,10 @@
 
 **Plan**
 
-* [ ] next, standalone, mui, prettier
-* [ ] data-service, stubdata
-* [ ] cms, types, pages
-* [ ] docker, deploy
+* [x] next, standalone, mui, prettier
+* [x] data-service, stubdata
+* [x] cms, types, pages
+* [x] docker, deploy
 * [ ] normal app
 * [ ] page-renderer-lib
 * [ ] architecture docs, paper in blog
@@ -39,5 +39,5 @@ docker build and expose 3 port + 1 for 80
 
 ```
 docker build . -t widget-portal:v1
-docker run --rm --name widget-portal-container -p 3100:8200 -p 3101:8201 -p 3102:8202 -e PORT=3100 -m 2048m widget-portal:v1
+docker run --rm --name widget-portal-container -p 8200:3100 -p 8201:3101 -p 8202:3102 -m 2048m widget-portal:v1
 ```

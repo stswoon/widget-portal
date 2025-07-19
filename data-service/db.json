@@ -25,5 +25,57 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "products": [
+    {
+      "name": "Samsung Galaxy S24 Ultra",
+      "image": "https://example.com/images/samsung-galaxy-s24-ultra.jpg",
+      "description": "Флагманский смартфон с мощным процессором Exynos 2400, камерой 200 Мп и батареей 5000 мАч."
+    },
+    {
+      "name": "Apple iPhone 15 Pro",
+      "image": "https://example.com/images/iphone-15-pro.jpg",
+      "description": "Премиум-смартфон от Apple с чипом A17 Pro, титановой рамкой и улучшенной камерой для портретов."
+    },
+    {
+      "name": "Google Pixel 8",
+      "image": "https://example.com/images/google-pixel-8.jpg",
+      "description": "Чистый Android и мощная камера с поддержкой ИИ — идеальный выбор для любителей фото и простоты."
+    },
+    {
+      "name": "Xiaomi 14 Pro",
+      "image": "https://example.com/images/xiaomi-14-pro.jpg",
+      "description": "Флагман Xiaomi с AMOLED экраном 2K, процессором Snapdragon 8 Gen 3 и быстрой зарядкой 120 Вт."
+    },
+    {
+      "name": "OnePlus 12",
+      "image": "https://example.com/images/oneplus-12.jpg",
+      "description": "Сбалансированный смартфон с 6.8'' дисплеем, до 16 ГБ ОЗУ и суперплавной работой системы."
+    },
+    {
+      "name": "Sony Xperia 1 VI",
+      "image": "https://example.com/images/sony-xperia-1-vi.jpg",
+      "description": "Флагман для фанатов мультимедиа: дисплей 4K OLED, кинематографическая камера и звук высокого качества."
+    },
+    {
+      "name": "Realme GT 6 Pro",
+      "image": "https://example.com/images/realme-gt-6-pro.jpg",
+      "description": "Игровой монстр с чипом Snapdragon и экраном с частотой 144 Гц для максимального погружения."
+    },
+    {
+      "name": "Motorola Edge 50 Ultra",
+      "image": "https://example.com/images/motorola-edge-50-ultra.jpg",
+      "description": "Элегантный дизайн, мощное железо и быстрая зарядка — отличный выбор для современного пользователя."
+    },
+    {
+      "name": "Asus ROG Phone 8",
+      "image": "https://example.com/images/asus-rog-phone-8.jpg",
+      "description": "Игровой смартфон с активным охлаждением, ультрабыстрым откликом и RGB-подсветкой."
+    },
+    {
+      "name": "Nothing Phone (2)",
+      "image": "https://example.com/images/nothing-phone-2.jpg",
+      "description": "Уникальный дизайн с подсветкой Glyph, чистый Android и производительность на уровне флагмана."
+    }
+  ]
 }

@@ -7,7 +7,7 @@ const cmsToken =
 
 let cmsDomain = "http://localhost:3101";
 let dataDomain = "http://localhost:3102";
-if (!window.location.host.startsWith("localhost")) {
+if (!window?.location.host.startsWith("localhost")) {
   //self request
   cmsDomain = '';
   dataDomain = '';
