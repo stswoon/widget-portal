@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Button } from "@mui/material";
+import { Test } from "@/components/Test";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         />
 
         <Button variant={"contained"}>Mui Button</Button>
+        <Test></Test>
       </main>
     </div>
   );
