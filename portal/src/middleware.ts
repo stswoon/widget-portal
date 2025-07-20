@@ -1,56 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// export function middleware(req: NextRequest) {
-//   const { pathname } = req.nextUrl;
-//
-//   if (pathname.startsWith("/cms")) {
-//     const rewriteUrl = req.nextUrl.clone();
-//     rewriteUrl.pathname = pathname.replace("/cms", "");
-//     rewriteUrl.host = "https://localhost:3101";
-//     return NextResponse.rewrite(rewriteUrl);
-//   } else if (pathname.startsWith("/data")) {
-//     const rewriteUrl = req.nextUrl.clone();
-//     rewriteUrl.pathname = pathname.replace("/data", "");
-//     rewriteUrl.host = "https://localhost:3102";
-//     return NextResponse.rewrite(rewriteUrl);
-//   }
-//
-//   return NextResponse.next();
-// }
-//
-// export const config = {
-//   matcher: ["/cma/:path*", "/data/:path*"]
-// };
+async function proxyRequest(req: NextRequest, baseUrl: string, prefix: string) {
+  const targetPath = req.nextUrl.pathname.replace(prefix, "");
+  const backendUrl = `${baseUrl}/${targetPath}`;
+  const fetchResponse = await fetch(backendUrl, {
+    method: req.method,
+    headers: req.headers,
+    body: req.body
+  });
+  const body = await fetchResponse.text();
+  return new NextResponse(body, {
+    status: fetchResponse.status,
+    headers: fetchResponse.headers
+  });
+}
 
 //EDGE works normally only for GET otherwise use route proxy
-//TODO: optimize
 export async function middleware(req: NextRequest) {
-  if (req.nextUrl.pathname.startsWith("/cms")) {
-    const targetPath = req.nextUrl.pathname.replace("/cms/", "");
-    const backendUrl = `http://localhost:3101/${targetPath}`;
-    const fetchResponse = await fetch(backendUrl, {
-      method: req.method,
-      headers: req.headers,
-      body: req.body
-    });
-    const body = await fetchResponse.text();
-    return new NextResponse(body, {
-      status: fetchResponse.status,
-      headers: fetchResponse.headers
-    });
+  if (req.nextUrl.pathname.startsWith("/cms/")) {
+    return await proxyRequest(req, "http://localhost:3101", "/cms/");
   } else if (req.nextUrl.pathname.startsWith("/data/")) {
-    const targetPath = req.nextUrl.pathname.replace("/data/", "");
-    const backendUrl = `http://localhost:3102/${targetPath}`;
-    const fetchResponse = await fetch(backendUrl, {
-      method: req.method,
-      headers: req.headers,
-      body: req.body
-    });
-    const body = await fetchResponse.text();
-    return new NextResponse(body, {
-      status: fetchResponse.status,
-      headers: fetchResponse.headers
-    });
+    return await proxyRequest(req, "http://localhost:3102", "/data/");
   }
 
   return NextResponse.next();
