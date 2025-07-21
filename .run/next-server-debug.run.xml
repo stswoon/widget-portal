@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="next-server-debug" type="NodeJSConfigurationType" path-to-js-file="node_modules/next/dist/bin/next" working-dir="$PROJECT_DIR$/portal">
+    <envs>
+      <env name="PORT" value="3100" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>

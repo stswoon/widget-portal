@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="multi-run" type="CompoundRunConfigurationType">
+    <toRun name="cms:serve" type="js.build_tools.npm" />
+    <toRun name="data-service:start" type="js.build_tools.npm" />
+    <toRun name="portal:serve" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

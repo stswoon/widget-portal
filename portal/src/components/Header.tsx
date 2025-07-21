@@ -1,7 +1,8 @@
 import { FC, memo } from "react";
-import { AppBar, Box, Container, Link, Toolbar } from "@mui/material";
+import { AppBar, Box, Container, Link, Stack, Toolbar } from "@mui/material";
 import Image from "next/image";
 import { HeaderMenuLink } from "@/components/Header.model";
+import NextLink from "next/link";
 
 interface HeaderProps {
   menu: HeaderMenuLink[];
@@ -9,28 +10,27 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = memo(({ menu }) => {
   return (
-    <div className="taHeader">
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
+    <AppBar position="static" className="taHeader">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
 
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {menu.map(({ url, title }) => (
-                <Link
-                  key={url}
-                  href={url}
-                  variant="button"
-                  color="textSecondary"
-                  underline="hover"
-                >
-                  {title}
-                </Link>
-              ))}
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </div>
+          <Stack paddingLeft={4} flexDirection="row" gap={2}>
+            {menu.map(({ url, title }) => (
+              <Link
+                key={url}
+                href={url}
+                variant="button"
+                color="textSecondary"
+                underline="hover"
+                component={NextLink}
+              >
+                {title}
+              </Link>
+            ))}
+          </Stack>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 });
