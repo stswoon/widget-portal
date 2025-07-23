@@ -10,27 +10,29 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = memo(({ menu }) => {
   return (
-    <AppBar position="static" className="taHeader">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
+    <Box marginBottom={4}>
+      <AppBar position="static" className="taHeader">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
 
-          <Stack paddingLeft={4} flexDirection="row" gap={2}>
-            {menu.map(({ url, title }) => (
-              <Link
-                key={url}
-                href={url}
-                variant="button"
-                color="textSecondary"
-                underline="hover"
-                component={NextLink}
-              >
-                {title}
-              </Link>
-            ))}
-          </Stack>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Stack paddingLeft={4} flexDirection="row" gap={2}>
+              {menu.map(({ url, title }) => (
+                <Link
+                  key={url}
+                  href={url}
+                  variant="button"
+                  color="textSecondary"
+                  underline="hover"
+                  component={NextLink}
+                >
+                  {title}
+                </Link>
+              ))}
+            </Stack>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </Box>
   );
 });
