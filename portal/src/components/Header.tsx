@@ -3,6 +3,7 @@ import { AppBar, Box, Container, Link, Stack, Toolbar } from "@mui/material";
 import Image from "next/image";
 import { HeaderMenuLink } from "@/components/Header.model";
 import NextLink from "next/link";
+import { LINKS } from "@/constants/routes.const";
 
 interface HeaderProps {
   menu: HeaderMenuLink[];
@@ -10,11 +11,13 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = memo(({ menu }) => {
   return (
-    <Box marginBottom={4}>
+    <Box>
       <AppBar position="static" className="taHeader">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
+            <Link href={LINKS.root}>
+              <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
+            </Link>
 
             <Stack paddingLeft={4} flexDirection="row" gap={2}>
               {menu.map(({ url, title }) => (

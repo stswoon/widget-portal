@@ -13,7 +13,10 @@ export const ProductCard: FC<ProductCardProps> = memo((props) => {
   const productImgSrc = props.imgSrc ? ROUTES.productImg(props.imgSrc) : ROUTES.defaultProductImg;
 
   return (
-    <Card sx={{ maxWidth: 345 }} className="taProductCard">
+    <Card
+      className="taProductCard"
+      sx={{ maxWidth: 345, height: "100%", display: "flex", flexDirection: "column" }}
+    >
       <CardMedia
         component="img"
         height="140"
@@ -21,7 +24,7 @@ export const ProductCard: FC<ProductCardProps> = memo((props) => {
         alt={`img for product ${props.name}`}
       />
 
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
           {props.name}
         </Typography>

@@ -9,13 +9,20 @@ interface ProductListProps {}
 export const ProductList: FC<ProductListProps> = memo(async ({}) => {
   // console.log("ROUTES.products=" + ROUTES.products);
   //TODO: loading, error boundary
+  //TODO: use a
   const products: ProductDto[] = await (await fetch(ROUTES.products)).json();
   return (
-    <Stack className="taProductList" direction="row" gap={3} flexWrap="wrap" justifyContent="center">
+    <Stack
+      className="taProductList"
+      direction="row"
+      gap={3}
+      flexWrap="wrap"
+      justifyContent="center"
+      alignItems="stretch"
+    >
       {products.map((product) => (
-        <Box width="30%" minWidth="300px">
+        <Box width="30%" minWidth="300px" key={product.name} >
           <ProductCard
-            key={product.name}
             name={product.name}
             imgSrc={product.imgSrc}
             description={product.description}

@@ -8,5 +8,6 @@ export const ROUTES = {
 };
 
 export const LINKS = {
+  root: "/",
   product: (name: string) => `/product/${name}`
 };

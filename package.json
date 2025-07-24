@@ -13,8 +13,7 @@
     "build:cms": "echo 'build cms' && npm --prefix ./cms cms:build",
     "build:data-service": "echo 'build data-service' && npm --prefix ./data-service data-service:build",
     "build:portal": "echo 'build portal' && npm --prefix ./portal portal:build",
-    "//all:start": "npm --prefix ./portal run portal:start",
-
+    "//all:start": "npm --prefix ./portal run portal:start"
   },
   "dependencies": {
     "concurrently": "^9.2.0"
