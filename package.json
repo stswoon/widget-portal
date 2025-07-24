@@ -3,10 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "all:install-dependencies": "echo cms && npm --prefix ./cms ci && echo data-service && npm --prefix ./data-service ci && echo portal && npm --prefix ./portal ci",
-    "all:build": "echo cms && npm --prefix ./cms run cms:build && echo data-service && npm --prefix ./data-service run data-service:build && echo portal && npm --prefix ./portal run portal:build",
+    "install:all": "npm run install:data-service && npm run install:cms && npm run install:portal",
+    "build:all": "npm run build:data-service && npm run build:cms && npm run build:portal",
+    "start:all": "concurrently --kill-others \"npm --prefix ./cms run cms:start\" \"npm --prefix ./data-service run data-service:start\" \"npm --prefix ./portal run portal:start\"",
+    "-----": "echo 0",
+    "install:cms": "echo 'install deps for cms' && npm --prefix ./cms ci",
+    "install:data-service": "echo 'install deps for data-service' && npm --prefix ./data-service ci",
+    "install:portal": "echo 'install deps for portal' && npm --prefix ./portal ci",
+    "build:cms": "echo 'build cms' && npm --prefix ./cms cms:build",
+    "build:data-service": "echo 'build data-service' && npm --prefix ./data-service data-service:build",
+    "build:portal": "echo 'build portal' && npm --prefix ./portal portal:build",
     "//all:start": "npm --prefix ./portal run portal:start",
-    "all:start": "concurrently --kill-others \"npm --prefix ./cms run cms:start\" \"npm --prefix ./data-service run data-service:start\" \"npm --prefix ./portal run portal:start\""
+
   },
   "dependencies": {
     "concurrently": "^9.2.0"
