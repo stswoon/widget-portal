@@ -1,4 +1,4 @@
-import { HeaderMenuLink } from "@/components/Header.model";
+import { HeaderMenuLink } from "@/components/Header";
 
 export const HEADER_MENU_LINKS: HeaderMenuLink[] = [
   {

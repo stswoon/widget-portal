@@ -1,5 +1,5 @@
-import { FC, memo, useMemo } from "react";
-import { ProductDto } from "@/models/Product.model";
+import { FC, memo } from "react";
+import { ProductDto } from "@/models/product.model";
 import { ROUTES } from "@/constants/routes.const";
 import { Box, Stack, Typography } from "@mui/material";
 import { marked } from "marked";
@@ -48,7 +48,8 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
 
 async function getProductDetails(name: string): Promise<ProductDto> {
   const res: ProductDto[] = await fetch(ROUTES.product(name)).then((res) => res.json());
+  await sleep(3000);
   return res[0];
 }
 
-//TODO: refactor all
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

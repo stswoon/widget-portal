@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { ProductDto } from "@/models/Product.model";
+import { ProductDto } from "@/models/product.model";
 import { ProductCard } from "@/components/ProductCard";
 import { ROUTES } from "@/constants/routes.const";
 import { Box, Stack } from "@mui/material";
@@ -7,10 +7,9 @@ import { Box, Stack } from "@mui/material";
 interface ProductListProps {}
 
 export const ProductList: FC<ProductListProps> = memo(async ({}) => {
-  // console.log("ROUTES.products=" + ROUTES.products);
   //TODO: loading, error boundary
-  //TODO: use a
   const products: ProductDto[] = await (await fetch(ROUTES.products)).json();
+
   return (
     <Stack
       className="taProductList"
