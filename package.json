@@ -10,9 +10,9 @@
     "install:cms": "echo 'install deps for cms' && npm --prefix ./cms ci",
     "install:data-service": "echo 'install deps for data-service' && npm --prefix ./data-service ci",
     "install:portal": "echo 'install deps for portal' && npm --prefix ./portal ci",
-    "build:cms": "echo 'build cms' && npm --prefix ./cms cms:build",
-    "build:data-service": "echo 'build data-service' && npm --prefix ./data-service data-service:build",
-    "build:portal": "echo 'build portal' && npm --prefix ./portal portal:build",
+    "build:cms": "echo 'build cms' && npm --prefix ./cms run cms:build",
+    "build:data-service": "echo 'build data-service' && npm --prefix ./data-service run data-service:build",
+    "build:portal": "echo 'build portal' && npm --prefix ./portal run portal:build",
     "//all:start": "npm --prefix ./portal run portal:start"
   },
   "dependencies": {

@@ -3,14 +3,18 @@ import { HeaderMenuLink } from "@/components/Header";
 export const HEADER_MENU_LINKS: HeaderMenuLink[] = [
   {
     title: "Samsung Galaxy S24 Ultra",
-    url: "/product/samsung-galaxy-s24-ultra"
+    url: "/product/Samsung%20Galaxy%20S24%20Ultra"
   },
   {
     title: "Apple iPhone 15 Pro",
-    url: "/product/apple-iphone-15-pro"
+    url: "/product/Apple%20iPhone%2015%20Pro"
   },
   {
-    title: "Google Pixel 8",
-    url: "/product/google-pixel-8"
+    title: "Google Pixel 404",
+    url: "/product/google-pixel-404-not-exist"
+  },
+  {
+    title: "About",
+    url: "/about"
   }
 ];
