@@ -41,3 +41,5 @@ export const ProductCard: FC<ProductCardProps> = memo((props) => {
     </Card>
   );
 });
+
+ProductCard.displayName = "ProductCard";

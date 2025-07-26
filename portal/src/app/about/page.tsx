@@ -3,7 +3,10 @@ import { Header } from "@/components/Header";
 import { HEADER_MENU_LINKS } from "@/constants/portal-data.const";
 import { Separator } from "@/components/Separator";
 
+export const dynamic = "force-static";
+
 export default function AboutPage() {
+  console.log("AboutPage");
   return (
     <main className="taAboutPage">
       <Header menu={HEADER_MENU_LINKS} />

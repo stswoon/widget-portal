@@ -5,6 +5,7 @@ interface PageEngineProps {
 }
 
 //TODO:
-export const PageEngine: FC<PageEngineProps> = memo(({ cmsUrl: string }) => {
-  return <div className="taPageEngine">PageEngine component</div>;
+export const PageEngine: FC<PageEngineProps> = memo(({ cmsUrl }) => {
+  return <div className="taPageEngine">PageEngine component {cmsUrl}</div>;
 });
+PageEngine.displayName = "PageEngine";

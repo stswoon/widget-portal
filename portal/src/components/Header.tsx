@@ -43,3 +43,4 @@ export const Header: FC<HeaderProps> = memo(({ menu }) => {
     </Box>
   );
 });
+Header.displayName = "Header";

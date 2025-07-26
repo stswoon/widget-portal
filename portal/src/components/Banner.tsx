@@ -9,3 +9,4 @@ export const Banner: FC = memo(() => {
     </Box>
   );
 });
+Banner.displayName = "Banner";

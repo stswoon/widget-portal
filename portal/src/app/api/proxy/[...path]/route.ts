@@ -7,6 +7,7 @@ interface RouteContext {
 export async function GET(req: NextRequest, context: RouteContext) {
   const path = (await context.params).path.join("/");
   const searchParams = req.nextUrl.searchParams.toString();
+  console.log(`Proxying request ${path}?${searchParams}`)
 
   let target: string | undefined;
   if (path.startsWith("cms/")) {

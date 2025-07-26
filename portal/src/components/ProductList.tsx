@@ -4,9 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { ROUTES } from "@/constants/routes.const";
 import { Box, Stack } from "@mui/material";
 
-interface ProductListProps {}
-
-export const ProductList: FC<ProductListProps> = memo(async ({}) => {
+export const ProductList: FC = memo(async ({}) => {
   //TODO: loading, error boundary
   const products: ProductDto[] = await (await fetch(ROUTES.products)).json();
 
@@ -20,7 +18,7 @@ export const ProductList: FC<ProductListProps> = memo(async ({}) => {
       alignItems="stretch"
     >
       {products.map((product) => (
-        <Box width="30%" minWidth="300px" key={product.name} >
+        <Box width="30%" minWidth="300px" key={product.name}>
           <ProductCard
             name={product.name}
             imgSrc={product.imgSrc}
@@ -31,3 +29,4 @@ export const ProductList: FC<ProductListProps> = memo(async ({}) => {
     </Stack>
   );
 });
+ProductList.displayName = "ProductList";

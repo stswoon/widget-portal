@@ -26,6 +26,8 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
   return (
     <Stack className="taProductDetails" gap={4}>
       <Stack gap={4} direction="row">
+        {/*TODO: change to Image*/}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={productImgSrc} alt={productData.name} height={300} width={250} />
         <Box>
           <Typography variant="h3">{productData.name}</Typography>
@@ -45,6 +47,7 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
     </Stack>
   );
 });
+ProductDetails.displayName = "ProductDetails";
 
 async function getProductDetails(name: string): Promise<ProductDto> {
   const res: ProductDto[] = await fetch(ROUTES.product(name)).then((res) => res.json());
