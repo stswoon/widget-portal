@@ -6,8 +6,13 @@
 * [x] data-service, stubdata
 * [x] cms, types, pages
 * [x] docker, deploy
-* [ ] normal app
-* [ ] page-renderer-lib
+* [x] normal app
+* [x] normal app: ssg
+* [x] normal app: standalone 
+* [x] page-renderer
+* [ ] page-renderer: widget in widget
+* [ ] page-renderer: server - client - server widget
+* [ ] page-renderer: reset
 * [ ] architecture docs, paper in blog
 
 ## Strapi

@@ -1,10 +1,12 @@
 import "./globals.css";
+
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Roboto } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
+
 import theme from "../utils/theme";
 
 const roboto = Roboto({
@@ -19,9 +21,7 @@ export const metadata: Metadata = {
   description: "Example of portal with configurable widgets"
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={roboto.variable}>
       <body>

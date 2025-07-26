@@ -1,16 +1,17 @@
 import { Typography } from "@mui/material";
-import { Header } from "@/components/Header";
+import { Header } from "@/widgets/Header";
+import { Splitter } from "@/widgets/Splitter";
 import { HEADER_MENU_LINKS } from "@/constants/portal-data.const";
-import { Separator } from "@/components/Separator";
 
 export const dynamic = "force-static";
 
 export default function AboutPage() {
   console.log("AboutPage");
+
   return (
     <main className="taAboutPage">
       <Header menu={HEADER_MENU_LINKS} />
-      <Separator />
+      <Splitter />
       <Typography>О компании</Typography>
       <Typography>
         Наша компания — это команда профессионалов, объединённых общей целью: создавать современные

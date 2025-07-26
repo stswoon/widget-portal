@@ -23,6 +23,7 @@ export const Header: FC<HeaderProps> = memo(({ menu }) => {
               <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
             </Link>
 
+            {/*//TODO: inner widget*/}
             <Stack paddingLeft={4} flexDirection="row" gap={2}>
               {(menu ?? []).map(({ url, title }) => (
                 <Link

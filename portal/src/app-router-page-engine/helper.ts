@@ -1,7 +1,21 @@
 import { CmsPage } from "@/app-router-page-engine/PageEngine.model";
 import { match } from "path-to-regexp";
 
-export const matchPage = (path: string, cmsPages: CmsPage[]): CmsPage | undefined => {
+export type MatchPageReturnType = [CmsPage | undefined, Record<string, string> | undefined];
+
+export const matchPage = (path: string, cmsPages: CmsPage[]): MatchPageReturnType => {
+  const cmsPage = matchPageOnly(path, cmsPages);
+  if (!cmsPage) {
+    return [undefined, undefined];
+  }
+  //TODO
+  const urlMatchResult = match(cmsPage.urlPattern)(path)!;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const params = (urlMatchResult as any).params;
+  return [cmsPage, params];
+};
+
+export const matchPageOnly = (path: string, cmsPages: CmsPage[]): CmsPage | undefined => {
   cmsPages = cmsPages.filter(({ urlPattern }) => match(urlPattern)(path));
 
   if (cmsPages.length === 1) {
@@ -33,3 +47,4 @@ export const matchPage = (path: string, cmsPages: CmsPage[]): CmsPage | undefine
     }
   }
 };
+

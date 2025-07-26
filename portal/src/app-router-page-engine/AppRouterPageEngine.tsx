@@ -15,27 +15,32 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
     headers: { Authorization: `Bearer ${CMS_TOKEN}` }
   }).then((res) => res.json());
 
-  const matchedPage = matchPage(path, cmsPageResponse.data);
+  const [matchedPage, urlParams] = matchPage(path, cmsPageResponse.data);
   if (!matchedPage) {
     // TODO
     return <div>Page not found</div>;
   }
 
-  console.log("Found page: ", matchedPage.urlPattern);
+  console.log(`AppRouterPageEngine::found page=${matchedPage.urlPattern}, urlParams=`, urlParams);
 
   return (
-    <div className="taPageEngine">
-      <div>PageEngine component {matchedPage.urlPattern}</div>
-
+    <div className="taAppRouterPageEngine">
       {!!matchedPage.headerWidget && (
         <PageRendererWidget
           key={matchedPage.headerWidget.name}
           underWidget={matchedPage.headerWidget}
+          urlParams={urlParams}
         />
       )}
 
       {matchedPage.contentZone.map((underWidget) => {
-        return <PageRendererWidget key={underWidget.name} underWidget={underWidget} />;
+        return (
+          <PageRendererWidget
+            key={underWidget.name}
+            underWidget={underWidget}
+            urlParams={urlParams}
+          />
+        );
       })}
     </div>
   );

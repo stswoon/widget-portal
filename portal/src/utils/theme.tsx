@@ -11,7 +11,8 @@ const theme = createTheme({
 
 export default theme;
 
-
+// optionally, if you want to use Next.js Link component for all links
+//
 // import NextLink from 'next/link';
 // import { forwardRef } from 'react';
 //

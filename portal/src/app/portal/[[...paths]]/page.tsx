@@ -1,47 +1,45 @@
-import { Header } from "@/components/Header";
-import { ProductList } from "@/components/ProductList";
-import { Banner } from "@/components/Banner";
-import { Separator } from "@/components/Separator";
+import { Header } from "@/widgets/Header";
+import { ProductList } from "@/widgets/ProductList";
+import { Banner } from "@/widgets/Banner";
+import { Splitter } from "@/widgets/Splitter";
 import { PAGE_ENGINE_REGISTER } from "@/app-router-page-engine/PageEngineRegister";
-import { ProductDetails } from "@/components/ProductDetails";
+import { ProductDetails } from "@/widgets/ProductDetails";
 import { FC } from "react";
 import { AppRouterPageEngine } from "@/app-router-page-engine/AppRouterPageEngine";
+import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service";
+import { REVALIDATE_TIMEOUT } from "@/constants/portal-data.const";
 
-//TODO
-export const revalidate = 60;
+export const revalidate = REVALIDATE_TIMEOUT;
 export const dynamicParams = true; // or false, to 404 on unknown paths
-export async function generateStaticParams() {
-  return [];
-}
+export const generateStaticParams = async () => []; // to spic generate pages for all paths, generate only by demand
 
 PAGE_ENGINE_REGISTER.register("widgets.header-widget", Header);
-PAGE_ENGINE_REGISTER.register("widgets.product-list-widget", ProductList);
-PAGE_ENGINE_REGISTER.register("widgets.product-details-widget", ProductDetails);
-PAGE_ENGINE_REGISTER.register("widgets.separator-widget", Separator);
+PAGE_ENGINE_REGISTER.register("widgets.product-list", ProductList);
+PAGE_ENGINE_REGISTER.register("widgets.product-widget", ProductDetails);
+PAGE_ENGINE_REGISTER.register("widgets.splitter", Splitter);
 PAGE_ENGINE_REGISTER.register("widgets.banner-widget", Banner);
 //TODO
 PAGE_ENGINE_REGISTER.register("widgets.menu-widget", Banner);
 //TODO
 PAGE_ENGINE_REGISTER.register("widgets.html-widget", Banner);
 
-interface ProductPageProps {
+interface DynamicPortalPageProps {
   params: Promise<{ paths: string[] | undefined }>;
 }
 
-const RootPage: FC<ProductPageProps> = async ({ params }) => {
+const DynamicPortalPage: FC<DynamicPortalPageProps> = async ({ params }) => {
   const { paths } = await params;
-  console.log(`RootPage::params=${JSON.stringify(params)}`);
   const path = "/" + (paths ?? []).join("/");
-  console.log(`RootPage::path=${path}`);
-
+  console.log(`DynamicPortalPage::path=${path}`);
+  PAGE_ROUTE_REGISTER_SERVICE.register(path);
   return (
-    <main className="taRootPage">
+    <main className="taDynamicPortalPage">
       <AppRouterPageEngine path={path} />
     </main>
   );
 };
 
-export default RootPage;
+export default DynamicPortalPage;
 
 // export default function RootPage() {
 //   console.log("RootPage");
@@ -49,10 +47,30 @@ export default RootPage;
 //     <main className="taRootPage">
 //       <Header menu={HEADER_MENU_LINKS} />
 //       <Banner />
-//       <Separator />
+//       <Splitter />
 //       <Container maxWidth="xl">
 //         <ProductList />
 //       </Container>
 //     </main>
 //   );
 // }
+
+// interface ProductPageProps {
+//   params: Promise<{ name: string }>;
+// }
+//
+// const ProductPage: FC<ProductPageProps> = async ({ params }) => {
+//   console.log("ProductPage");
+//   const { name } = await params;
+//   return (
+//     <main className="taProductPage">
+//       <Header menu={HEADER_MENU_LINKS} />
+//       <Splitter />
+//       <Container maxWidth="xl">
+//         <ProductDetails name={name} />
+//       </Container>
+//     </main>
+//   );
+// };
+//
+// export default ProductPage;

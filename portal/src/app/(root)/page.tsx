@@ -1,10 +1,10 @@
-import { Link } from "@mui/material";
+import { permanentRedirect } from "next/navigation";
+import { LINKS } from "@/constants/routes.const";
 
+// need to avoid circular dependency because /app/[[...path]] catch all requests
+// even api and system like .well-known/xxx.
+// In page router direct routes have more priority so no such issue there
 export default function RootPage() {
   console.log("RootPage");
-  return (
-    <main className="taRootPage">
-      <Link href="/portal">Go to Portal</Link>
-    </main>
-  );
+  permanentRedirect(LINKS.portal);
 }

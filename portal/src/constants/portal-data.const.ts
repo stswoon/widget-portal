@@ -1,5 +1,6 @@
-import { HeaderMenuLink } from "@/components/Header";
+import { HeaderMenuLink } from "@/widgets/Header";
 
+//TODO: remove to cms
 export const HEADER_MENU_LINKS: HeaderMenuLink[] = [
   {
     title: "Samsung Galaxy S24 Ultra",
@@ -18,3 +19,5 @@ export const HEADER_MENU_LINKS: HeaderMenuLink[] = [
     url: "/about"
   }
 ];
+
+export const REVALIDATE_TIMEOUT = 120;

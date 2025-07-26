@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "productId": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": false

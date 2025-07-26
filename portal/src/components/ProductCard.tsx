@@ -22,6 +22,7 @@ export const ProductCard: FC<ProductCardProps> = memo((props) => {
         height="140"
         image={productImgSrc}
         alt={`img for product ${props.name}`}
+        sx={{ objectFit: 'scale-down' }}
       />
 
       <CardContent sx={{ flexGrow: 1 }}>

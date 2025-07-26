@@ -10,5 +10,6 @@ export const ROUTES = {
 
 export const LINKS = {
   root: "/",
-  product: (name: string) => `/product/${name}`
+  portal: "/portal",
+  product: (name: string) => `${LINKS.portal}/product/${name}`
 };

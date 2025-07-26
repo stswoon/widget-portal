@@ -38,7 +38,7 @@ export interface WidgetsProductWidget extends Struct.ComponentSchema {
       'oneToOne',
       'api::widget-instance.widget-instance'
     >;
-    productId: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

@@ -8,7 +8,7 @@ export async function GET(req: NextRequest, context: RouteContext) {
   const path = (await context.params).path.join("/");
   // const searchParams = req.nextUrl.searchParams.toString();
   const searchParams = customSearchParamsToString(req.nextUrl.searchParams);
-  console.log(`Proxying request ${path}?${searchParams}`);
+  console.log(`ProxyHandler::from=${path}${searchParams ? "?" + searchParams : ""}`);
 
   let target: string | undefined;
   if (path.startsWith("cms/")) {
@@ -27,15 +27,11 @@ export async function GET(req: NextRequest, context: RouteContext) {
     target = `${target}?${searchParams}`;
   }
 
-  console.log(`Proxying request to ${target}`);
-  // console.log(req.headers.get("Authorization"));
+  console.log(`ProxyHandler::to=${target}`);
 
   const externalRes = await fetch(target, {
     method: "GET",
     headers: req.headers
-    // headers: {
-    //   Authorization: req.headers.get("Authorization") || ""
-    // }
   });
   return new Response(externalRes.body, {
     headers: externalRes.headers,
@@ -50,6 +46,6 @@ export async function GET(req: NextRequest, context: RouteContext) {
 function customSearchParamsToString(params: URLSearchParams): string {
   const entries = Array.from(params.entries());
   return entries
-    .map(([key, value]) => value === '' ? key : `${key}=${encodeURIComponent(value)}`)
-    .join('&');
+    .map(([key, value]) => (value === "" ? key : `${key}=${encodeURIComponent(value)}`))
+    .join("&");
 }
