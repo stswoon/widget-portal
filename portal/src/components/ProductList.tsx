@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { ROUTES } from "@/constants/routes.const";
 import { Box, Stack } from "@mui/material";
 
-export const ProductList: FC = memo(async ({}) => {
+export const ProductList: FC = memo(async () => {
   //TODO: loading, error boundary
   const products: ProductDto[] = await (await fetch(ROUTES.products)).json();
 

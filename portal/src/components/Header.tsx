@@ -24,7 +24,7 @@ export const Header: FC<HeaderProps> = memo(({ menu }) => {
             </Link>
 
             <Stack paddingLeft={4} flexDirection="row" gap={2}>
-              {menu.map(({ url, title }) => (
+              {(menu ?? []).map(({ url, title }) => (
                 <Link
                   key={url}
                   href={url}
