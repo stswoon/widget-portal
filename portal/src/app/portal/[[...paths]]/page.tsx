@@ -7,11 +7,11 @@ import { ProductDetails } from "@/widgets/ProductDetails";
 import { FC } from "react";
 import { AppRouterPageEngine } from "@/app-router-page-engine/AppRouterPageEngine";
 import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service";
-import { REVALIDATE_TIMEOUT } from "@/constants/portal-data.const";
 import { HeaderMenu } from "@/widgets/HeaderMenu";
 import { HtmlWidget } from "@/widgets/HtmlWidget";
+import { LINKS } from "@/constants/routes.const";
 
-export const revalidate = REVALIDATE_TIMEOUT;
+export const revalidate = 120; //cannot assign constant from other file
 export const dynamicParams = true; // or false, to 404 on unknown paths
 export const generateStaticParams = async () => []; // to spic generate pages for all paths, generate only by demand
 
@@ -32,7 +32,7 @@ const DynamicPortalPage: FC<DynamicPortalPageProps> = async ({ params }) => {
   const { paths } = await params;
   const path = "/" + (paths ?? []).join("/");
   console.log(`DynamicPortalPage::path=${path}`);
-  PAGE_ROUTE_REGISTER_SERVICE.register(path);
+  PAGE_ROUTE_REGISTER_SERVICE.register(LINKS.portal + path);
   return (
     <main className="taDynamicPortalPage">
       <AppRouterPageEngine path={path} />
