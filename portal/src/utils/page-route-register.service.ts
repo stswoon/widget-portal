@@ -16,7 +16,7 @@ class PageRouteRegisterService {
   }
 
   clear(): void {
-    //this.routes.clear();
+    this.routes.clear();
   }
 }
 
