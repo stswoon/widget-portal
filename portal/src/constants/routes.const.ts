@@ -8,8 +8,12 @@ export const ROUTES = {
   cmsPages: `${SELF}/api/proxy/cms/api/pages?pLevel`
 };
 
+const PORTAL_LINK = "/portal";
+
 export const LINKS = {
   root: "/",
-  portal: "/portal",
+  portal: PORTAL_LINK,
+
+  checkout: `${PORTAL_LINK}/checkout`,
   product: (name: string) => `${LINKS.portal}/product/${name}`
 };

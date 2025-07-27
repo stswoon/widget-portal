@@ -2,8 +2,8 @@ import { FC, memo } from "react";
 import { ProductDto } from "@/models/product.model";
 import { ROUTES } from "@/constants/routes.const";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { marked } from "marked";
 import { HtmlWidget } from "@/widgets/HtmlWidget";
+import { BuyButton } from "@/components/BuyButton";
 
 interface ProductDetailsProps {
   name: string;
@@ -31,6 +31,9 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
           <Box>
             <Typography variant="h3">{productData.name}</Typography>
             <Typography variant="body1">{productData.description}</Typography>
+            <Stack alignItems="center" paddingTop={4}>
+              <BuyButton />
+            </Stack>
           </Box>
 
           {/* TODO: client counter to buy widget + server widget with discount after 3 products */}
