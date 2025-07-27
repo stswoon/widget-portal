@@ -441,6 +441,8 @@ export interface ApiWidgetInstanceWidgetInstance
         'widgets.html-widget',
         'widgets.header-widget',
         'widgets.splitter',
+        'widgets.banner-widget',
+        'widgets.menu-widget',
       ]
     > &
       Schema.Attribute.Required &

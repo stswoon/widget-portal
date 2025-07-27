@@ -4,6 +4,7 @@ import { ROUTES } from "@/constants/routes.const";
 import { CmsPageResponse } from "@/app-router-page-engine/PageEngine.model";
 import { matchPage } from "@/app-router-page-engine/helper";
 import { PageRendererWidget } from "@/app-router-page-engine/PageRendererWidget";
+import { Box } from "@mui/material";
 
 interface PageEngineProps {
   path: string;
@@ -24,7 +25,7 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
   console.log(`AppRouterPageEngine::found page=${matchedPage.urlPattern}, urlParams=`, urlParams);
 
   return (
-    <div className="taAppRouterPageEngine">
+    <Box className="taAppRouterPageEngine">
       {!!matchedPage.headerWidget && (
         <PageRendererWidget
           key={matchedPage.headerWidget.name}
@@ -40,9 +41,9 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
             underWidget={underWidget}
             urlParams={urlParams}
           />
-        );
+        )
       })}
-    </div>
+    </Box>
   );
 });
 

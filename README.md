@@ -10,7 +10,7 @@
 * [x] normal app: ssg
 * [x] normal app: standalone 
 * [x] page-renderer
-* [ ] page-renderer: widget in widget
+* [x] page-renderer: widget in widget
 * [ ] page-renderer: server - client - server widget
 * [ ] page-renderer: reset
 * [ ] architecture docs, paper in blog

@@ -16,7 +16,13 @@ export const matchPage = (path: string, cmsPages: CmsPage[]): MatchPageReturnTyp
 };
 
 export const matchPageOnly = (path: string, cmsPages: CmsPage[]): CmsPage | undefined => {
-  cmsPages = cmsPages.filter(({ urlPattern }) => match(urlPattern)(path));
+  cmsPages = cmsPages.filter(({ urlPattern }) => {
+    if (match(urlPattern)(path)) {
+      return true;
+    } else {
+      return urlPattern === path || urlPattern === decodeURI(path);
+    }
+  });
 
   if (cmsPages.length === 1) {
     return cmsPages[0];

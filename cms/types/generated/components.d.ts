@@ -1,12 +1,23 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface WidgetsBannerWidget extends Struct.ComponentSchema {
+  collectionName: 'components_widgets_banner_widgets';
+  info: {
+    displayName: 'BannerWidget';
+  };
+  attributes: {};
+}
+
 export interface WidgetsHeaderWidget extends Struct.ComponentSchema {
   collectionName: 'components_widgets_header_widgets';
   info: {
     displayName: 'HeaderWidget';
   };
   attributes: {
-    menuConfiguration: Schema.Attribute.JSON;
+    menuWidget: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::widget-instance.widget-instance'
+    >;
   };
 }
 
@@ -16,7 +27,17 @@ export interface WidgetsHtmlWidget extends Struct.ComponentSchema {
     displayName: 'HtmlWidget';
   };
   attributes: {
-    content: Schema.Attribute.Blocks;
+    content: Schema.Attribute.RichText;
+  };
+}
+
+export interface WidgetsMenuWidget extends Struct.ComponentSchema {
+  collectionName: 'components_widgets_menu_widgets';
+  info: {
+    displayName: 'MenuWidget';
+  };
+  attributes: {
+    menu: Schema.Attribute.JSON;
   };
 }
 
@@ -34,10 +55,6 @@ export interface WidgetsProductWidget extends Struct.ComponentSchema {
     displayName: 'ProductWidget';
   };
   attributes: {
-    marketingWidget: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::widget-instance.widget-instance'
-    >;
     name: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -55,8 +72,10 @@ export interface WidgetsSplitter extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'widgets.banner-widget': WidgetsBannerWidget;
       'widgets.header-widget': WidgetsHeaderWidget;
       'widgets.html-widget': WidgetsHtmlWidget;
+      'widgets.menu-widget': WidgetsMenuWidget;
       'widgets.product-list': WidgetsProductList;
       'widgets.product-widget': WidgetsProductWidget;
       'widgets.splitter': WidgetsSplitter;

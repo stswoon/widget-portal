@@ -22,7 +22,9 @@
         "widgets.product-list",
         "widgets.html-widget",
         "widgets.header-widget",
-        "widgets.splitter"
+        "widgets.splitter",
+        "widgets.banner-widget",
+        "widgets.menu-widget"
       ],
       "required": true,
       "max": 1

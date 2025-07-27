@@ -9,11 +9,6 @@
       "type": "string",
       "required": true,
       "unique": false
-    },
-    "marketingWidget": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::widget-instance.widget-instance"
     }
   },
   "config": {}

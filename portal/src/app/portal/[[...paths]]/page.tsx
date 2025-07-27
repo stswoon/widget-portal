@@ -8,20 +8,21 @@ import { FC } from "react";
 import { AppRouterPageEngine } from "@/app-router-page-engine/AppRouterPageEngine";
 import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service";
 import { REVALIDATE_TIMEOUT } from "@/constants/portal-data.const";
+import { HeaderMenu } from "@/widgets/HeaderMenu";
+import { HtmlWidget } from "@/widgets/HtmlWidget";
 
 export const revalidate = REVALIDATE_TIMEOUT;
 export const dynamicParams = true; // or false, to 404 on unknown paths
 export const generateStaticParams = async () => []; // to spic generate pages for all paths, generate only by demand
 
+//TODO: page big size, lazy?
 PAGE_ENGINE_REGISTER.register("widgets.header-widget", Header);
 PAGE_ENGINE_REGISTER.register("widgets.product-list", ProductList);
 PAGE_ENGINE_REGISTER.register("widgets.product-widget", ProductDetails);
 PAGE_ENGINE_REGISTER.register("widgets.splitter", Splitter);
 PAGE_ENGINE_REGISTER.register("widgets.banner-widget", Banner);
-//TODO
-PAGE_ENGINE_REGISTER.register("widgets.menu-widget", Banner);
-//TODO
-PAGE_ENGINE_REGISTER.register("widgets.html-widget", Banner);
+PAGE_ENGINE_REGISTER.register("widgets.menu-widget", HeaderMenu);
+PAGE_ENGINE_REGISTER.register("widgets.html-widget", HtmlWidget);
 
 interface DynamicPortalPageProps {
   params: Promise<{ paths: string[] | undefined }>;

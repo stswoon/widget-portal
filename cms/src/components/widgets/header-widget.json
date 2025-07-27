@@ -5,8 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "menuConfiguration": {
-      "type": "json"
+    "menuWidget": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::widget-instance.widget-instance"
     }
   },
   "config": {}
