@@ -11,8 +11,9 @@
 * [x] normal app: standalone 
 * [x] page-renderer
 * [x] page-renderer: widget in widget
-* [ ] page-renderer: server - client - server widget
-* [ ] page-renderer: reset
+* [x] page-renderer: server - client - server widget
+* [x] page-renderer: reset
+* [ ] todos
 * [ ] architecture docs, paper in blog
 
 ## Strapi

@@ -443,6 +443,8 @@ export interface ApiWidgetInstanceWidgetInstance
         'widgets.splitter',
         'widgets.banner-widget',
         'widgets.menu-widget',
+        'widgets.server-test-widget',
+        'widgets.client-test-widget',
       ]
     > &
       Schema.Attribute.Required &

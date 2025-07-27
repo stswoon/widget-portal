@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_widgets_client_test_widgets",
+  "info": {
+    "displayName": "ClientTestWidget"
+  },
+  "options": {},
+  "attributes": {
+    "serverWidget": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::widget-instance.widget-instance"
+    }
+  },
+  "config": {}
+}

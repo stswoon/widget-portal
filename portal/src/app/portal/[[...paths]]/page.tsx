@@ -10,6 +10,8 @@ import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service
 import { HeaderMenu } from "@/widgets/HeaderMenu";
 import { HtmlWidget } from "@/widgets/HtmlWidget";
 import { LINKS } from "@/constants/routes.const";
+import { ClientTestWidget } from "@/widgets/ClientTestWidget";
+import { ServerTestWidget } from "@/widgets/ServerTestWidget";
 
 export const revalidate = 120; //cannot assign constant from other file
 export const dynamicParams = true; // or false, to 404 on unknown paths
@@ -23,6 +25,8 @@ PAGE_ENGINE_REGISTER.register("widgets.splitter", Splitter);
 PAGE_ENGINE_REGISTER.register("widgets.banner-widget", Banner);
 PAGE_ENGINE_REGISTER.register("widgets.menu-widget", HeaderMenu);
 PAGE_ENGINE_REGISTER.register("widgets.html-widget", HtmlWidget);
+PAGE_ENGINE_REGISTER.register("widgets.client-test-widget", ClientTestWidget);
+PAGE_ENGINE_REGISTER.register("widgets.server-test-widget", ServerTestWidget);
 
 interface DynamicPortalPageProps {
   params: Promise<{ paths: string[] | undefined }>;
