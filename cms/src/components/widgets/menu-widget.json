@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_widgets_menu_widgets",
+  "info": {
+    "displayName": "MenuWidget"
+  },
+  "options": {},
+  "attributes": {
+    "menu": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}
