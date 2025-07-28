@@ -12,7 +12,7 @@
 * [x] page-renderer
 * [x] page-renderer: widget in widget
 * [x] page-renderer: server - client - server widget
-* [x] page-renderer: reset
+* [ ] page-renderer: reset
 * [ ] todos, refactor
 * [ ] architecture docs, paper in blog
 
