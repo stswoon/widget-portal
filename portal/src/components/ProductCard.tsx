@@ -9,7 +9,7 @@ interface ProductCardProps {
   description?: string;
 }
 
-export const ProductCard: FC<ProductCardProps> = memo((props) => {
+export const ProductCard: FC<ProductCardProps> = memo(props => {
   const productImgSrc = props.imgSrc ? ROUTES.productImg(props.imgSrc) : ROUTES.defaultProductImg;
 
   return (

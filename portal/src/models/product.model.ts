@@ -1,4 +1,3 @@
-//TODO
 export interface ProductDto {
   name: string;
   imgSrc?: string;
