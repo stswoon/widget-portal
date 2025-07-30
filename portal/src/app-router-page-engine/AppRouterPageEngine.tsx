@@ -6,7 +6,8 @@ import { matchPage } from "@/app-router-page-engine/helper";
 import { PageRendererWidget } from "@/app-router-page-engine/PageRendererWidget";
 import { Box } from "@mui/material";
 import { Error } from "@/components/Error";
-import { ErrorBoundary } from "react-error-boundary";
+import { notFound } from "next/navigation";
+import SkipNotFoundErrorBoundary from "@/components/SkipNotFoundErrorBoundary";
 
 interface PageEngineProps {
   path: string;
@@ -20,8 +21,9 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
 
   const [matchedPage, urlParams] = matchPage(path, cmsPageResponse.data);
   if (!matchedPage) {
+    notFound();
     // TODO
-    return <div>Page not found</div>;
+    // return <div>Page not found</div>;
   }
 
   console.log(`AppRouterPageEngine::found page=${matchedPage.urlPattern}, urlParams=`, urlParams);
@@ -29,7 +31,7 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
   return (
     <Box className="taAppRouterPageEngine">
       {!!matchedPage.headerWidget && (
-        <ErrorBoundary
+        <SkipNotFoundErrorBoundary
           fallback={
             <Error message={`Failed to load widget with name "${matchedPage.headerWidget.name}"`} />
           }
@@ -39,21 +41,21 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
             underWidget={matchedPage.headerWidget}
             urlParams={urlParams}
           />
-        </ErrorBoundary>
+        </SkipNotFoundErrorBoundary>
       )}
 
       {matchedPage.contentZone.map((underWidget) => {
         return (
-          <ErrorBoundary
+          <SkipNotFoundErrorBoundary
             key={underWidget.name}
             fallback={<Error message={`Failed to load widget with name "${underWidget.name}"`} />}
           >
             <PageRendererWidget
-              // key={underWidget.name}
+              key={underWidget.name}
               underWidget={underWidget}
               urlParams={urlParams}
             />
-          </ErrorBoundary>
+          </SkipNotFoundErrorBoundary>
         );
       })}
     </Box>

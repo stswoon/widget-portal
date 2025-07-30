@@ -5,6 +5,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import { HtmlWidget } from "@/widgets/HtmlWidget";
 import { BuyButton } from "@/components/BuyButton";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface ProductDetailsProps {
   name: string;
@@ -18,11 +19,10 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
     : ROUTES.defaultProductImg;
 
   if (!productData) {
-    //TODO: notfound
-    return <div className="taProductDetails">Product not found</div>;
+    notFound();
+    // return <div className="taProductDetails">Product not found</div>;
   }
 
-  //TODO:
   if (productData.name === "Asus Error") {
     throw new Error("Special product to test errors from widgets on next portal");
   }
@@ -53,12 +53,13 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
     </Container>
   );
 });
+
 ProductDetails.displayName = "ProductDetails";
 
 async function getProductDetails(name: string): Promise<ProductDto> {
   const res: ProductDto[] = await fetch(ROUTES.product(name)).then((res) => res.json());
-  if (res?.[0].name === "Google Pixel Loading") {
-    await sleep(5000); //for layout loading
+  if (res?.[0]?.name === "Google Pixel Loading") {
+    await sleep(1000); //for layout loading
   }
   return res[0];
 }

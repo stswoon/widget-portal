@@ -13,7 +13,7 @@ export const Header: FC<HeaderProps> = memo(({ menuWidget }) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href={LINKS.root}>
-            <Image src="/next.svg" alt="Next.js logo" width={180} height={38} />
+            <Image src="/next.svg" alt="Next.js logo" width={180} height={38} priority={true} />
           </Link>
 
           {menuWidget}

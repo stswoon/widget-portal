@@ -1,6 +1,6 @@
-import { Box, Container, Grid, Skeleton, Stack } from "@mui/material";
+import { Box, Container, Skeleton, Stack } from "@mui/material";
 
-export default function Loading2() {
+export default function Loading() {
   return (
     <Container className="taPortalPageLoading" maxWidth="xl">
       <Stack justifyContent="center" direction="row" flexWrap="wrap">
@@ -17,3 +17,8 @@ export default function Loading2() {
     </Container>
   );
 }
+
+// export default function Loading() {
+//   // Or a custom loading skeleton component
+//   return <p>Loading...</p>
+// }
