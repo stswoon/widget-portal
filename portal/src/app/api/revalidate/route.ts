@@ -1,7 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service";
 
-//TODO: check revalidate
 export async function GET() {
   console.log("RevalidateRoute::routes=", PAGE_ROUTE_REGISTER_SERVICE.getAll().join(", "));
   PAGE_ROUTE_REGISTER_SERVICE.getAll().forEach((path) => {

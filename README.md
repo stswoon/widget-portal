@@ -12,9 +12,8 @@
 * [x] page-renderer
 * [x] page-renderer: widget in widget
 * [ ] page-renderer: server - client - server widget: update checkout
-* [ ] page-renderer: reset
+* [x] page-renderer: reset
 * [ ] todos, refactor
-* [ ] playwright tests
 * [ ] architecture docs, paper in blog
 
 ## Strapi

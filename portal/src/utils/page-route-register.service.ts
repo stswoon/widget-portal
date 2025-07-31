@@ -6,6 +6,9 @@ class PageRouteRegisterService {
   private routes = new Set<string>();
 
   register(url: string): void {
+    if (url.endsWith("/")) {
+      url = url.slice(0, url.length - 1);
+    }
     console.log(`PageRouteRegisterService[${this._ID}]::register url=${url}`);
     this.routes.add(url);
   }
