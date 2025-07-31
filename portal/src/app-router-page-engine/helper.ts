@@ -1,18 +1,32 @@
 import { CmsPage } from "@/app-router-page-engine/PageEngine.model";
-import { match } from "path-to-regexp";
+import { match, ParamData } from "path-to-regexp";
 
-export type MatchPageReturnType = [CmsPage | undefined, Record<string, string> | undefined];
+export type SimpleUrlParams = Record<string, string>;
+
+export type MatchPageReturnType = [CmsPage | undefined, SimpleUrlParams | undefined];
 
 export const matchPage = (path: string, cmsPages: CmsPage[]): MatchPageReturnType => {
   const cmsPage = matchPageOnly(path, cmsPages);
   if (!cmsPage) {
     return [undefined, undefined];
   }
-  //TODO
-  const urlMatchResult = match(cmsPage.urlPattern)(path)!;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const params = (urlMatchResult as any).params;
+  const urlMatchResult = match(cmsPage.urlPattern)(decodeURI(path));
+  if (!urlMatchResult) {
+    return [undefined, undefined];
+  }
+  const params = convertToSimpleUrlParams(urlMatchResult.params);
   return [cmsPage, params];
+};
+
+const convertToSimpleUrlParams = (params: ParamData): SimpleUrlParams => {
+  return Object.entries(params).reduce<SimpleUrlParams>((acc, [key, value]) => {
+    if (Array.isArray(value)) {
+      acc[key] = value.join(",");
+    } else {
+      acc[key] = value as string;
+    }
+    return acc;
+  }, {});
 };
 
 export const matchPageOnly = (path: string, cmsPages: CmsPage[]): CmsPage | undefined => {
@@ -53,4 +67,3 @@ export const matchPageOnly = (path: string, cmsPages: CmsPage[]): CmsPage | unde
     }
   }
 };
-

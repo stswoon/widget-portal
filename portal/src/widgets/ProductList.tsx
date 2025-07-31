@@ -5,7 +5,6 @@ import { ROUTES } from "@/constants/routes.const";
 import { Box, Container, Stack } from "@mui/material";
 
 export const ProductList: FC = memo(async () => {
-  //TODO: loading
   const products: ProductDto[] = await (await fetch(ROUTES.products)).json();
 
   return (

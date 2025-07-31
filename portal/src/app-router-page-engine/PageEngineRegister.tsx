@@ -1,17 +1,13 @@
 import { FC } from "react";
 
-//TODO: register lazy???
-
 class PageEngineRegister {
-  #widgets = new Map<string, FC<unknown>>()
+  #widgets = new Map<string, FC<void | object>>()
 
-  //TODO
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register(name: string, widget: FC<any>): void {
-    this.#widgets.set(name, widget);
+  register<T extends void | object>(name: string, widget: FC<T>): void {
+    this.#widgets.set(name, widget as FC<void | object>);
   }
 
-  get(name: string): FC<unknown> | undefined {
+  get<T extends void | object>(name: string): FC<T> | undefined {
     return this.#widgets.get(name);
   }
 }

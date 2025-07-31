@@ -14,16 +14,22 @@ interface PageEngineProps {
 }
 
 export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) => {
+  console.log(`AppRouterPageEngine::path=${path}`);
+
+  const cmsToken = CMS_TOKEN;
+  console.log(`AppRouterPageEngine::cmsToken=${cmsToken}`);
+
   const cmsPageResponse: CmsPageResponse = await fetch(ROUTES.cmsPages, {
     method: "GET",
-    headers: { Authorization: `Bearer ${CMS_TOKEN}` }
+    headers: { Authorization: `Bearer ${cmsToken}` }
   }).then((res) => res.json());
+
+  //here should be CmsAdapter pattern to converter Strapi CMS model or other CMS model
+  // into standard PageEngine model but it is skipped because it is only PoC.
 
   const [matchedPage, urlParams] = matchPage(path, cmsPageResponse.data);
   if (!matchedPage) {
     notFound();
-    // TODO
-    // return <div>Page not found</div>;
   }
 
   console.log(`AppRouterPageEngine::found page=${matchedPage.urlPattern}, urlParams=`, urlParams);

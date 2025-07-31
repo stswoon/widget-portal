@@ -11,8 +11,6 @@ export interface CmsPage {
   contentZone: CmsUnderWidget[];
 }
 
-//TODO cmsAdapter
-
 export interface CmsUnderWidget {
   name: string;
   widget: CmsWidget[];
@@ -27,5 +25,5 @@ export interface CmsWidget {
   /**
    * component props
    */
-  [key: string]: unknown;
+  [key: string]: unknown | CmsUnderWidget;
 }

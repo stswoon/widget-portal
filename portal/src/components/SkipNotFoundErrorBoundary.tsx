@@ -17,10 +17,8 @@ export default class SkipNotFoundErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false };
   }
 
-  //TODO: typings
   static getDerivedStateFromError(error: Error) {
-    // console.error("getDerivedStateFromError::error=", error); //TODO: not works on server????
-    // console.log("getDerivedStateFromError::error=", error);
+    // console.error("getDerivedStateFromError::error=", error);
     if (error?.message === "NEXT_HTTP_ERROR_FALLBACK;404") {
       return { hasError: false };
     }
@@ -28,7 +26,7 @@ export default class SkipNotFoundErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: unknown, errorInfo: unknown) {
-    console.log("componentDidCatch::Error caught by Error Boundary:", error, errorInfo);
+    // console.log("componentDidCatch::Error caught by Error Boundary:", error, errorInfo);
     console.error("componentDidCatch::Error caught by Error Boundary:", error, errorInfo);
   }
 

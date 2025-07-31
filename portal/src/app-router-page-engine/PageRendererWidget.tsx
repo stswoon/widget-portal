@@ -16,13 +16,10 @@ export const PageRendererWidget: FC<PageRendererWidgetProps> = memo(
     }
 
     for (const key in widgetData) {
-      //TODO:
-      //eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const anyWidgetValue = widgetData[key] as any;
-      if (anyWidgetValue?.widget) {
+      const anyWidgetValue: unknown | CmsUnderWidget = widgetData[key];
+      if ((anyWidgetValue as CmsUnderWidget).widget) {
         //means inner widget
-        const innerWidget = <PageRendererWidget underWidget={anyWidgetValue} />;
-        widgetData[key] = innerWidget;
+        widgetData[key] = <PageRendererWidget underWidget={anyWidgetValue as CmsUnderWidget} />;
       }
     }
 
