@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { CmsWidgetReference } from "@/app-router-page-engine/PageEngine.model";
 import { PAGE_ENGINE_REGISTER } from "@/app-router-page-engine/PageEngineRegister";
-import { Error } from "@/components/Error";
+import { AlertError } from "@/components/AlertError";
 import SkipNotFoundErrorBoundary from "@/components/SkipNotFoundErrorBoundary";
 
 interface PageEngineRenderWidgetProps {
@@ -15,7 +15,7 @@ export const PageEngineRenderWidget: FC<PageEngineRenderWidgetProps> = memo(asyn
   if (!Widget) {
     return (
       <div className="taPageRendererWidget">
-        <Error message={`Widget not found: ${widgetData.__component}`} />
+        <AlertError message={`Widget not found: ${widgetData.__component}`} />
       </div>
     );
   }
@@ -34,7 +34,7 @@ export const PageEngineRenderWidget: FC<PageEngineRenderWidgetProps> = memo(asyn
     <div className="taPageRendererWidget">
       <SkipNotFoundErrorBoundary
         fallback={
-          <Error message={`Failed to load widget with name "${props.cmsWidgetReference.name}"`} />
+          <AlertError message={`Failed to load widget with name "${props.cmsWidgetReference.name}"`} />
         }
       >
         <Widget key={props.cmsWidgetReference.name} {...widgetData} {...props.urlParams} />

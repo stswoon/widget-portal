@@ -15,13 +15,13 @@ export default function NotFound() {
         404
       </Typography>
       <Typography variant="h4" mb={2}>
-        Страница не найдена
+        Page not found
       </Typography>
       <Typography variant="body1" mb={4} maxWidth="400px">
-        Возможно, вы ввели неправильный адрес или страница была перемещена.
+        You might have entered a wrong address or the page has been moved.
       </Typography>
       <Button variant="contained" color="primary" href="/">
-        На главную
+        Go to Root
       </Button>
     </Box>
   );

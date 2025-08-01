@@ -30,6 +30,10 @@ export const registerPageRenderWidgets = () => {
     "widgets.banner-widget",
     dynamic(() => import("@/widgets/Banner").then((m) => m.Banner))
   );
+  PAGE_ENGINE_REGISTER.register(
+    "widgets.checkout-widget",
+    dynamic(() => import("@/widgets/Checkout").then((m) => m.Checkout))
+  );
   PAGE_ENGINE_REGISTER.register("widgets.client-test-widget", ClientTestWidget);
   PAGE_ENGINE_REGISTER.register("widgets.server-test-widget", ServerTestWidget);
 };

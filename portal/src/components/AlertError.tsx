@@ -1,11 +1,11 @@
 import { FC, memo } from "react";
 import { Alert } from "@mui/material";
 
-interface ErrorProps {
+interface AlertErrorProps {
   message: string;
 }
 
-export const Error: FC<ErrorProps> = memo(({ message }) => {
+export const AlertError: FC<AlertErrorProps> = memo(({ message }) => {
   return (
     <Alert className="taError" severity="error">
       {message}
@@ -13,4 +13,4 @@ export const Error: FC<ErrorProps> = memo(({ message }) => {
   );
 });
 
-Error.displayName = "Error";
+AlertError.displayName = "Error";

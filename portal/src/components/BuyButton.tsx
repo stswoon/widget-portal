@@ -1,13 +1,31 @@
 "use client";
 
-import { FC, memo, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { Button, Stack, Typography } from "@mui/material";
-import { LINKS } from "@/constants/routes.const";
+import { LINKS, ROUTES } from "@/constants/routes.const";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { useRouter } from "next/navigation";
+import useSWRMutation from "swr/mutation";
+import { OrderDto } from "@/models/order.model";
+import { AlertError } from "@/components/AlertError";
+import { postFetcher } from "@/utils/utils";
 
-export const BuyButton: FC = memo(() => {
+export interface BuyButtonProps {
+  productName: string;
+}
+
+export const BuyButton: FC<BuyButtonProps> = memo(({ productName }) => {
+  const router = useRouter();
+
   const [count, setCount] = useState(1);
+
+  const { trigger, error, isMutating } = useSWRMutation(ROUTES.postOrder, postFetcher<OrderDto>);
+
+  const buy = useCallback(async () => {
+    const order = await trigger({ productName, count });
+    router.push(LINKS.checkout(order.id));
+  }, [count, productName, router, trigger]);
 
   return (
     <Stack className="taBuyButton" gap={2} width="300px">
@@ -20,9 +38,10 @@ export const BuyButton: FC = memo(() => {
           <AddIcon />
         </Button>
       </Stack>
-      <Button size="large" variant="contained" color="success" href={LINKS.checkout}>
+      <Button size="large" variant="contained" color="success" onClick={buy} loading={isMutating}>
         Buy
       </Button>
+      {!!error && <AlertError message={`Failed to checkout: ${error.message}`} />}
     </Stack>
   );
 });

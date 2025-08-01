@@ -43,7 +43,7 @@ export const ProductDetails: FC<ProductDetailsProps> = memo(async ({ name }) => 
             <Typography variant="h3">{productData.name}</Typography>
             <Typography variant="body1">{productData.description}</Typography>
             <Stack alignItems="center" paddingTop={4}>
-              <BuyButton />
+              <BuyButton productName={productData.name} />
             </Stack>
           </Box>
         </Stack>
