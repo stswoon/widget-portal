@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 
-class PageRouteRegisterService {
+class RouteRegisterService {
   public readonly _ID = nanoid(); //singleton works
 
   private routes = new Set<string>();
@@ -23,4 +23,4 @@ class PageRouteRegisterService {
   }
 }
 
-export const PAGE_ROUTE_REGISTER_SERVICE = new PageRouteRegisterService();
+export const ROUTE_REGISTER_SERVICE = new RouteRegisterService();

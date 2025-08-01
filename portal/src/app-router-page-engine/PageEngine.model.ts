@@ -7,11 +7,11 @@ export interface CmsPage {
    * "/product/:id"
    */
   urlPattern: string;
-  headerWidget: CmsUnderWidget;
-  contentZone: CmsUnderWidget[];
+  headerWidget: CmsWidgetReference;
+  contentZone: CmsWidgetReference[];
 }
 
-export interface CmsUnderWidget {
+export interface CmsWidgetReference {
   name: string;
   widget: CmsWidget[];
 }
@@ -25,5 +25,5 @@ export interface CmsWidget {
   /**
    * component props
    */
-  [key: string]: unknown | CmsUnderWidget;
+  [key: string]: unknown | CmsWidgetReference;
 }

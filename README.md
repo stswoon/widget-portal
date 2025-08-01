@@ -13,7 +13,7 @@
 * [x] page-renderer: widget in widget
 * [ ] page-renderer: server - client - server widget: update checkout
 * [x] page-renderer: reset
-* [ ] todos, refactor
+* [x] todos, refactor
 * [ ] architecture docs, paper in blog
 
 ## Strapi

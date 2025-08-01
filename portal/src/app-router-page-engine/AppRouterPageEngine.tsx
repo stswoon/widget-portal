@@ -2,12 +2,10 @@ import { FC, memo } from "react";
 import { CMS_TOKEN } from "@/constants/secrets";
 import { ROUTES } from "@/constants/routes.const";
 import { CmsPageResponse } from "@/app-router-page-engine/PageEngine.model";
-import { matchPage } from "@/app-router-page-engine/helper";
-import { PageRendererWidget } from "@/app-router-page-engine/PageRendererWidget";
+import { matchPage } from "@/app-router-page-engine/pageRender.util";
+import { PageEngineRenderWidget } from "@/app-router-page-engine/PageEngineRenderWidget";
 import { Box } from "@mui/material";
-import { Error } from "@/components/Error";
 import { notFound } from "next/navigation";
-import SkipNotFoundErrorBoundary from "@/components/SkipNotFoundErrorBoundary";
 
 interface PageEngineProps {
   path: string;
@@ -25,7 +23,7 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
   }).then((res) => res.json());
 
   //here should be CmsAdapter pattern to converter Strapi CMS model or other CMS model
-  // into standard PageEngine model but it is skipped because it is only PoC.
+  //into standard PageEngine model but it is skipped because it is only PoC.
 
   const [matchedPage, urlParams] = matchPage(path, cmsPageResponse.data);
   if (!matchedPage) {
@@ -37,31 +35,19 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
   return (
     <Box className="taAppRouterPageEngine">
       {!!matchedPage.headerWidget && (
-        <SkipNotFoundErrorBoundary
-          fallback={
-            <Error message={`Failed to load widget with name "${matchedPage.headerWidget.name}"`} />
-          }
-        >
-          <PageRendererWidget
-            key={matchedPage.headerWidget.name}
-            underWidget={matchedPage.headerWidget}
-            urlParams={urlParams}
-          />
-        </SkipNotFoundErrorBoundary>
+        <PageEngineRenderWidget
+          cmsWidgetReference={matchedPage.headerWidget}
+          urlParams={urlParams}
+        />
       )}
 
-      {matchedPage.contentZone.map((underWidget) => {
+      {matchedPage.contentZone.map((cmsWidgetReference) => {
         return (
-          <SkipNotFoundErrorBoundary
-            key={underWidget.name}
-            fallback={<Error message={`Failed to load widget with name "${underWidget.name}"`} />}
-          >
-            <PageRendererWidget
-              key={underWidget.name}
-              underWidget={underWidget}
-              urlParams={urlParams}
-            />
-          </SkipNotFoundErrorBoundary>
+          <PageEngineRenderWidget
+            key={cmsWidgetReference.name}
+            cmsWidgetReference={cmsWidgetReference}
+            urlParams={urlParams}
+          />
         );
       })}
     </Box>

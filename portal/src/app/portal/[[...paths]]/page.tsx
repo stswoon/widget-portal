@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { AppRouterPageEngine } from "@/app-router-page-engine/AppRouterPageEngine";
-import { PAGE_ROUTE_REGISTER_SERVICE } from "@/utils/page-route-register.service";
+import { ROUTE_REGISTER_SERVICE } from "@/utils/RouteRegister.service";
 import { LINKS } from "@/constants/routes.const";
-import { registerPageRenderWidgets } from "@/utils/register-widgets";
+import { registerPageRenderWidgets } from "@/utils/registerWidgets.util";
 import urlJoin from "url-join";
 
 export const revalidate = 120; //cannot assign constant from other file
@@ -19,7 +19,7 @@ const DynamicPortalPage: FC<DynamicPortalPageProps> = async ({ params }) => {
   const { paths } = await params;
   const path = "/" + (paths ?? []).join("/");
   console.log(`DynamicPortalPage::path=${path}`);
-  PAGE_ROUTE_REGISTER_SERVICE.register(urlJoin(LINKS.portal, path));
+  ROUTE_REGISTER_SERVICE.register(urlJoin(LINKS.portal, path));
   return (
     <main className="taDynamicPortalPage">
       <AppRouterPageEngine path={path} />
