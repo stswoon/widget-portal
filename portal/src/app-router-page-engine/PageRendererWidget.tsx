@@ -8,8 +8,8 @@ interface PageRendererWidgetProps {
 }
 
 export const PageRendererWidget: FC<PageRendererWidgetProps> = memo(
-  ({ underWidget, urlParams }) => {
-    const widgetData = underWidget.widget[0];
+  async (props) => {
+    const widgetData = props.underWidget.widget[0];
     const Widget = PAGE_ENGINE_REGISTER.get(widgetData.__component);
     if (!Widget) {
       return <div>Widget not found: {widgetData.__component}</div>;
@@ -25,7 +25,7 @@ export const PageRendererWidget: FC<PageRendererWidgetProps> = memo(
 
     return (
       <div className="taPageRendererWidget">
-        <Widget key={underWidget.name} {...widgetData} {...urlParams} />
+        <Widget key={props.underWidget.name} {...widgetData} {...(props.urlParams)} />
       </div>
     );
   }
