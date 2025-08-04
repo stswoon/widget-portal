@@ -4,12 +4,6 @@
     "displayName": "ClientTestWidget"
   },
   "options": {},
-  "attributes": {
-    "serverWidget": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::widget-instance.widget-instance"
-    }
-  },
+  "attributes": {},
   "config": {}
 }

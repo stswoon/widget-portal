@@ -1,4 +1,4 @@
-export const isServer = typeof window === "undefined";
+export const isServer = () => typeof window === "undefined";
 
 export const getFetcher = <T>(url: string): Promise<T> => fetch(url).then((res) => res.json());
 

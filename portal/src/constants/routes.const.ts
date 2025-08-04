@@ -9,7 +9,7 @@ export const ROUTES = {
   product: (name: string) => `${SELF}/api/proxy/data/products?name=${name}`,
   cmsPages: `${SELF}/api/proxy/cms/api/pages?pLevel`,
   postOrder: `${SELF}/api/proxy/data/orders`,
-  getOrder: (id: string) => `${SELF}/api/proxy/data/order/${id}`
+  getOrder: (id: string) => `${SELF}/api/proxy/data/orders/${id}`
 };
 
 const PORTAL_LINK = "/portal";

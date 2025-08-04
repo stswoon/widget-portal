@@ -8,17 +8,20 @@ export interface WidgetsBannerWidget extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface WidgetsCheckoutWidget extends Struct.ComponentSchema {
+  collectionName: 'components_widgets_checkout_widgets';
+  info: {
+    displayName: 'CheckoutWidget';
+  };
+  attributes: {};
+}
+
 export interface WidgetsClientTestWidget extends Struct.ComponentSchema {
   collectionName: 'components_widgets_client_test_widgets';
   info: {
     displayName: 'ClientTestWidget';
   };
-  attributes: {
-    serverWidget: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::widget-instance.widget-instance'
-    >;
-  };
+  attributes: {};
 }
 
 export interface WidgetsHeaderWidget extends Struct.ComponentSchema {
@@ -77,9 +80,7 @@ export interface WidgetsServerTestWidget extends Struct.ComponentSchema {
   info: {
     displayName: 'ServerTestWidget';
   };
-  attributes: {
-    randomText: Schema.Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface WidgetsSplitter extends Struct.ComponentSchema {
@@ -96,6 +97,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'widgets.banner-widget': WidgetsBannerWidget;
+      'widgets.checkout-widget': WidgetsCheckoutWidget;
       'widgets.client-test-widget': WidgetsClientTestWidget;
       'widgets.header-widget': WidgetsHeaderWidget;
       'widgets.html-widget': WidgetsHtmlWidget;

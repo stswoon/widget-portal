@@ -1,30 +1,56 @@
-'use client'
+"use client";
 
-import { FC, memo } from "react";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import React, { FC, memo, ReactNode } from "react";
+import { Box, CircularProgress, Container, Stack, Typography } from "@mui/material";
 import useSWR from "swr";
 import { ROUTES } from "@/constants/routes.const";
 import { AlertError } from "@/components/AlertError";
 import { OrderDto } from "@/models/order.model";
 import { getFetcher } from "@/utils/utils";
+import { useSearchParams } from "next/navigation";
 
-//TODO: add to strapi, link to open strapi, server compoentn in checkout, remove TEST components
+const COUNT_FOR_DISCOUNT = 3;
 
-export const Checkout: FC = memo(() => {
-  const { data: order, error, isLoading } = useSWR<OrderDto>(ROUTES.getOrder, getFetcher);
+interface CheckoutProps {
+  customHelperComponent: ReactNode;
+}
+
+export const Checkout: FC<CheckoutProps> = memo(({ customHelperComponent }) => {
+  // if (isServer()) {
+  //   console.error("SHOULD NOT CALLED ON SERVER");
+  // }
+
+  const searchParams = useSearchParams();
+  const orderId = searchParams.get("id");
+
+  const {
+    data: order,
+    error,
+    isLoading
+  } = useSWR<OrderDto>(orderId ? ROUTES.getOrder(orderId) : null, getFetcher);
+
+  if (!order) {
+    // notFound();
+  }
+
   return (
-    <Box className="taCheckout">
+    <Container maxWidth="xl" className="taProductDetails">
       {!!error && <AlertError message={`Failed to get order: ${error.message}`} />}
       {isLoading && <CircularProgress size="50px" />}
 
       {order && (
-        <>
+        <Stack direction="column" gap={2} alignItems="center">
+          <Box>
+            <Typography>Thank you that you buy </Typography>
+            <Typography fontWeight="bold">{order.productName}</Typography>
+          </Box>
           <Typography>Order id: {order.id}</Typography>
-          <Typography>Thank you that you buy {order.productName}</Typography>
           <Typography>Count: {order.count}</Typography>
-        </>
+
+          {order.count >= COUNT_FOR_DISCOUNT && customHelperComponent}
+        </Stack>
       )}
-    </Box>
+    </Container>
   );
 });
 

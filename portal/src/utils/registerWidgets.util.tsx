@@ -8,8 +8,6 @@ import { Splitter } from "@/widgets/Splitter";
 // import { Banner } from "@/widgets/Banner";
 // import { ProductList } from "@/widgets/ProductList";
 // import { ProductDetails } from "@/widgets/ProductDetails";
-import { ClientTestWidget } from "@/widgets/ClientTestWidget";
-import { ServerTestWidget } from "@/widgets/ServerTestWidget";
 
 export const registerPageRenderWidgets = () => {
   //TODO: page compilation big size, try lazy - dynamic?
@@ -34,6 +32,4 @@ export const registerPageRenderWidgets = () => {
     "widgets.checkout-widget",
     dynamic(() => import("@/widgets/Checkout").then((m) => m.Checkout))
   );
-  PAGE_ENGINE_REGISTER.register("widgets.client-test-widget", ClientTestWidget);
-  PAGE_ENGINE_REGISTER.register("widgets.server-test-widget", ServerTestWidget);
 };

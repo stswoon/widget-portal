@@ -445,6 +445,7 @@ export interface ApiWidgetInstanceWidgetInstance
         'widgets.menu-widget',
         'widgets.server-test-widget',
         'widgets.client-test-widget',
+        'widgets.checkout-widget',
       ]
     > &
       Schema.Attribute.Required &

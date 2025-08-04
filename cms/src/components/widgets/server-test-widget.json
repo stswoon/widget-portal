@@ -4,10 +4,6 @@
     "displayName": "ServerTestWidget"
   },
   "options": {},
-  "attributes": {
-    "randomText": {
-      "type": "string"
-    }
-  },
+  "attributes": {},
   "config": {}
 }

@@ -4,6 +4,7 @@ import { ROUTE_REGISTER_SERVICE } from "@/utils/RouteRegister.service";
 import { LINKS } from "@/constants/routes.const";
 import { registerPageRenderWidgets } from "@/utils/registerWidgets.util";
 import urlJoin from "url-join";
+import { Discount } from "@/components/Discount";
 
 export const revalidate = 120; //cannot assign constant from other file
 export const dynamicParams = true; // or false, to 404 on unknown paths
@@ -22,7 +23,7 @@ const DynamicPortalPage: FC<DynamicPortalPageProps> = async ({ params }) => {
   ROUTE_REGISTER_SERVICE.register(urlJoin(LINKS.portal, path));
   return (
     <main className="taDynamicPortalPage">
-      <AppRouterPageEngine path={path} />
+      <AppRouterPageEngine path={path} customHelperComponent={<Discount />} />
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, ReactNode } from "react";
 import { CMS_TOKEN } from "@/constants/secrets";
 import { ROUTES } from "@/constants/routes.const";
 import { CmsPageResponse } from "@/app-router-page-engine/PageEngine.model";
@@ -9,10 +9,11 @@ import { notFound } from "next/navigation";
 
 interface PageEngineProps {
   path: string;
+  customHelperComponent?: ReactNode;
 }
 
-export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) => {
-  console.log(`AppRouterPageEngine::path=${path}`);
+export const AppRouterPageEngine: FC<PageEngineProps> = memo(async (props) => {
+  console.log(`AppRouterPageEngine::path=${props.path}`);
 
   const cmsToken = CMS_TOKEN;
   console.log(`AppRouterPageEngine::cmsToken=${cmsToken}`);
@@ -25,7 +26,7 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
   //here should be CmsAdapter pattern to converter Strapi CMS model or other CMS model
   //into standard PageEngine model but it is skipped because it is only PoC.
 
-  const [matchedPage, urlParams] = matchPage(path, cmsPageResponse.data);
+  const [matchedPage, urlParams] = matchPage(props.path, cmsPageResponse.data);
   if (!matchedPage) {
     notFound();
   }
@@ -47,6 +48,7 @@ export const AppRouterPageEngine: FC<PageEngineProps> = memo(async ({ path }) =>
             key={cmsWidgetReference.name}
             cmsWidgetReference={cmsWidgetReference}
             urlParams={urlParams}
+            customHelperComponent={props.customHelperComponent}
           />
         );
       })}
