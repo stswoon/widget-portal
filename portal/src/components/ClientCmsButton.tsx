@@ -1,18 +1,21 @@
 "use client";
 
 import { FC, memo } from "react";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 
 export const ClientCmsButton: FC = memo(() => {
   return (
-    <Button
-      sx={{ marginLeft: 4 }}
-      variant="contained"
-      className="taClientCmsButton"
-      onClick={() => (window.location.href = "http://" + window.location.hostname + ":3101")}
-    >
-      CMS
-    </Button>
+    <Stack className="taClientCmsButton" direction="row" gap={2} marginLeft={4}>
+      <Button
+        variant="contained"
+        onClick={() => (window.location.href = "http://" + window.location.hostname + ":3101")}
+      >
+        CMS
+      </Button>
+      <Button variant="contained" onClick={() => (window.location.href = "/api/revalidate")}>
+        Revalidate
+      </Button>
+    </Stack>
   );
 });
 
