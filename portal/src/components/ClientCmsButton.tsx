@@ -9,10 +9,7 @@ export const ClientCmsButton: FC = memo(() => {
       sx={{ marginLeft: 4 }}
       variant="contained"
       className="taClientCmsButton"
-      onClick={() =>
-        (window.location.href =
-          window.location.protocol + "//" + window.location.hostname + ":3101")
-      }
+      onClick={() => (window.location.href = "http://" + window.location.hostname + ":3101")}
     >
       CMS
     </Button>
