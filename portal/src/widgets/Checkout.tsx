@@ -40,10 +40,8 @@ export const Checkout: FC<CheckoutProps> = memo(({ customHelperComponent }) => {
 
       {order && (
         <Stack direction="column" gap={2} alignItems="center">
-          <Box>
-            <Typography>Thank you that you buy </Typography>
-            <Typography fontWeight="bold">{order.productName}</Typography>
-          </Box>
+          <Typography>Thank you that you buy</Typography>
+          <Typography fontWeight="bold">{order.productName}</Typography>
           <Typography>Order id: {order.id}</Typography>
           <Typography>Count: {order.count}</Typography>
 

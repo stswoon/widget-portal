@@ -16,14 +16,6 @@ export interface WidgetsCheckoutWidget extends Struct.ComponentSchema {
   attributes: {};
 }
 
-export interface WidgetsClientTestWidget extends Struct.ComponentSchema {
-  collectionName: 'components_widgets_client_test_widgets';
-  info: {
-    displayName: 'ClientTestWidget';
-  };
-  attributes: {};
-}
-
 export interface WidgetsHeaderWidget extends Struct.ComponentSchema {
   collectionName: 'components_widgets_header_widgets';
   info: {
@@ -75,14 +67,6 @@ export interface WidgetsProductWidget extends Struct.ComponentSchema {
   };
 }
 
-export interface WidgetsServerTestWidget extends Struct.ComponentSchema {
-  collectionName: 'components_widgets_server_test_widgets';
-  info: {
-    displayName: 'ServerTestWidget';
-  };
-  attributes: {};
-}
-
 export interface WidgetsSplitter extends Struct.ComponentSchema {
   collectionName: 'components_widgets_splitters';
   info: {
@@ -98,13 +82,11 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'widgets.banner-widget': WidgetsBannerWidget;
       'widgets.checkout-widget': WidgetsCheckoutWidget;
-      'widgets.client-test-widget': WidgetsClientTestWidget;
       'widgets.header-widget': WidgetsHeaderWidget;
       'widgets.html-widget': WidgetsHtmlWidget;
       'widgets.menu-widget': WidgetsMenuWidget;
       'widgets.product-list': WidgetsProductList;
       'widgets.product-widget': WidgetsProductWidget;
-      'widgets.server-test-widget': WidgetsServerTestWidget;
       'widgets.splitter': WidgetsSplitter;
     }
   }
