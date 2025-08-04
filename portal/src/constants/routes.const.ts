@@ -1,6 +1,8 @@
 import urlJoin from "url-join";
+import { isServer } from "@/utils/utils";
 
 const SELF = "http://localhost:3100";
+const SELF_DYNAMIC = () => (isServer() ? SELF : "");
 
 export const ROUTES = {
   products: `${SELF}/api/proxy/data/products`,
@@ -8,8 +10,8 @@ export const ROUTES = {
   productImg: (imgSrc: string) => urlJoin("/api/proxy/data", imgSrc),
   product: (name: string) => `${SELF}/api/proxy/data/products?name=${name}`,
   cmsPages: `${SELF}/api/proxy/cms/api/pages?pLevel`,
-  postOrder: `${SELF}/api/proxy/data/orders`,
-  getOrder: (id: string) => `${SELF}/api/proxy/data/orders/${id}`
+  postOrder: `/api/proxy/data/orders`,
+  getOrder: (id: string) => `/api/proxy/data/orders/${id}`
 };
 
 const PORTAL_LINK = "/portal";
