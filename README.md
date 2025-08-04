@@ -11,7 +11,7 @@
 * [x] normal app: standalone 
 * [x] page-renderer
 * [x] page-renderer: widget in widget
-* [ ] page-renderer: server - client - server widget: update checkout
+* [x] page-renderer: server - client - server widget: update checkout
 * [x] page-renderer: reset
 * [x] todos, refactor
 * [ ] architecture docs, paper in blog
