@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, memo, ReactNode } from "react";
-import { Box, CircularProgress, Container, Stack, Typography } from "@mui/material";
+import { CircularProgress, Container, Stack, Typography } from "@mui/material";
 import useSWR from "swr";
 import { ROUTES } from "@/constants/routes.const";
 import { AlertError } from "@/components/AlertError";
