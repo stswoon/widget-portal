@@ -1,8 +1,7 @@
 import urlJoin from "url-join";
-import { isServer } from "@/utils/utils";
 
 const SELF = "http://localhost:3100";
-const SELF_DYNAMIC = () => (isServer() ? SELF : "");
+// const SELF_DYNAMIC = () => (isServer() ? SELF : "");
 
 export const ROUTES = {
   products: `${SELF}/api/proxy/data/products`,

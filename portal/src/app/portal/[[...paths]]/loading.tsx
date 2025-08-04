@@ -1,5 +1,6 @@
 import { Box, Container, Skeleton, Stack } from "@mui/material";
 
+// TODO loading in SSG not works
 export default function Loading() {
   return (
     <Container className="taPortalPageLoading" maxWidth="xl">
