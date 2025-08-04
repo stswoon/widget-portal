@@ -12,7 +12,7 @@ export async function GET(req: NextRequest, context: RouteContext) {
   return REQUEST("GET", req, context)
 }
 
-export async function REQUEST(method: "POST" | "GET", req: NextRequest, context: RouteContext) {
+async function REQUEST(method: "POST" | "GET", req: NextRequest, context: RouteContext) {
   const path = (await context.params).path.join("/");
   // const searchParams = req.nextUrl.searchParams.toString();
   const searchParams = customSearchParamsToString(req.nextUrl.searchParams);
