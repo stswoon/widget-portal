@@ -17,6 +17,8 @@ For more info please read paper https://blog.stswoon.ru/pages/2025/Configurable%
 
 ## Architecture
 
+![](docs/arch.png)
+
 ```plantuml
 @startuml
 autonumber
