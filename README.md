@@ -5,6 +5,8 @@ configured in runtime with support SSG.
 
 For more info please read paper https://blog.stswoon.ru/pages/2025/Configurable%20Portal/index.html 
 
+![](docs/arch2.png)
+
 ## E2E TC
 
 1) Open portal "https://widget-portal.stswoon.ru"
