@@ -11,7 +11,7 @@ For more info please read paper https://blog.stswoon.ru/pages/2025/Configurable%
 
 1) Open portal "https://widget-portal.stswoon.ru"
     * ER=AR: BannerWidget displays under HeaderWidget but above ProductListWidget
-2) Click on "CMS" button in header
+2) Click on "CMS" button in header (creds user@user.xxx/One12345)
 3) Move BannerWidget under ProductListWidget
 4) Click "Revalidate" button in header
 5) Open portal again
