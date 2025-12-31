@@ -5,8 +5,8 @@
   "scripts": {
     "portal:serve": "next dev --turbopack -p 3400",
     "portal:build": "npm run lint && npm run portal:build-standalone",
-    "portal:start": "npm run portal:start-standalone",
-    "//portal:start": "node server.js",
+    "..portal:start": "npm run portal:start-standalone",
+    "portal:start": "node server.js",
     "-----": "echo 0",
     "portal:build-standalone": "next build --no-lint && npm run copy-assets",
     "portal:start-standalone": "cross-env PORT=3400 node .next/standalone/server.js",
