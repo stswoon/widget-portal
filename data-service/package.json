@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "data-service:build": "echo data-service built succesfuly",
-    "data-service:start": "json-server db.json -p 3102"
+    "data-service:start": "json-server db.json -p 3402"
   },
   "author": "",
   "license": "ISC",

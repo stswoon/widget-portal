@@ -1,11 +1,11 @@
 ### GET data throught proxy
-GET http://localhost:3100/api/proxy/data/products
+GET http://localhost:3400/api/proxy/data/products
 
 ### GET cmsPages
-GET http://localhost:3101/api/pages?pLevel
+GET http://localhost:3401/api/pages?pLevel
 Authorization: Bearer {{cmsToken}}
 
 ### GET cmsPages throught proxy
-GET http://localhost:3100/api/proxy/cms/api/pages?pLevel
+GET http://localhost:3400/api/proxy/cms/api/pages?pLevel
 Authorization: Bearer {{cmsToken}}
 

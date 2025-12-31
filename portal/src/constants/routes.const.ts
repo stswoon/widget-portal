@@ -1,6 +1,6 @@
 import urlJoin from "url-join";
 
-const SELF = "http://localhost:3100";
+const SELF = "http://localhost:3400";
 // const SELF_DYNAMIC = () => (isServer() ? SELF : "");
 
 export const ROUTES = {

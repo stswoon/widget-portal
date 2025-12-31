@@ -20,10 +20,10 @@ async function REQUEST(method: "POST" | "GET", req: NextRequest, context: RouteC
 
   let target: string | undefined;
   if (path.startsWith("cms/")) {
-    target = `http://localhost:3101`;
+    target = `http://localhost:3401`;
     target = `${target}/${path.replace("cms/", "")}`;
   } else if (path.startsWith("data/")) {
-    target = `http://localhost:3102`;
+    target = `http://localhost:3402`;
     target = `${target}/${path.replace("data/", "")}`;
   }
 

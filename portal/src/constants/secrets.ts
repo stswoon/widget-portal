@@ -1,3 +1,5 @@
+import 'server-only'; //TODO check
+
 import { isServer } from "@/utils/utils";
 
 export const CMS_TOKEN = !isServer()
