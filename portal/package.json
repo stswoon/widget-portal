@@ -5,7 +5,8 @@
   "scripts": {
     "portal:serve": "next dev --turbopack -p 3400",
     "portal:build": "npm run lint && npm run portal:build-standalone",
-    "portal:start": "node server.js",
+    "portal:start": "npm run portal:start-standalone",
+    "//portal:start": "node server.js",
     "-----": "echo 0",
     "portal:build-standalone": "next build --no-lint && npm run copy-assets",
     "portal:start-standalone": "cross-env PORT=3400 node .next/standalone/server.js",
@@ -22,7 +23,7 @@
     "@mui/material": "^7.2.0",
     "@mui/material-nextjs": "^7.2.0",
     "@mui/icons-material": "^7.2.0",
-    "next": "^15.5.9",
+    "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "marked": "^16.1.1",
