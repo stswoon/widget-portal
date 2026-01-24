@@ -1,11 +1,11 @@
-FROM node:22.11.0-alpine AS builder
+FROM node:22.22.0-alpine3.23 AS builder
 WORKDIR /app
 COPY . .
 RUN npm ci
 RUN npm run install:all
 RUN npm run build:all
 
-FROM node:22.11.0-alpine
+FROM node:22.22.0-alpine3.23
 WORKDIR /app
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/node_modules ./node_modules
