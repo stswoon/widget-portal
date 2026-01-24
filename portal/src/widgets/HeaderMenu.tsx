@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
-import {  Link, Stack } from "@mui/material";
-import NextLink from "next/link";
+import {  Stack } from "@mui/material";
+import { MuiNextLink } from "@/components/MuiNextLink";
 
 export interface HeaderMenuLink {
   title: string;
@@ -15,16 +15,15 @@ export const HeaderMenu: FC<HeaderMenuProps> = memo(({ menu }) => {
   return (
     <Stack paddingLeft={4} flexDirection="row" gap={2} className="taHeaderMenu">
       {(menu ?? []).map(({ url, title }) => (
-        <Link
+        <MuiNextLink
           key={url}
           href={url}
           variant="button"
           color="textSecondary"
           underline="hover"
-          component={NextLink}
         >
           {title}
-        </Link>
+        </MuiNextLink>
       ))}
     </Stack>
   );

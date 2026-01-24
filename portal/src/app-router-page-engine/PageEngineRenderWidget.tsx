@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode } from "react";
+import { ComponentType, FC, memo, ReactNode } from "react";
 import { CmsWidgetReference } from "@/app-router-page-engine/PageEngine.model";
 import { PAGE_ENGINE_REGISTER } from "@/app-router-page-engine/PageEngineRegister";
 import { AlertError } from "@/components/AlertError";
@@ -11,9 +11,14 @@ interface PageEngineRenderWidgetProps {
   customHelperComponent?: ReactNode;
 }
 
+
+
 export const PageEngineRenderWidget: FC<PageEngineRenderWidgetProps> = memo(async (props) => {
-  const widgetData = props.cmsWidgetReference.widget[0];
-  const Widget = PAGE_ENGINE_REGISTER.get(widgetData.__component);
+  const widgetData = {...props.cmsWidgetReference.widget[0]};
+
+  // const Widget = PAGE_ENGINE_REGISTER.get(widgetData.__component);
+  const Widget = PAGE_ENGINE_REGISTER.W.get(widgetData.__component) as (ComponentType | undefined);
+
   if (!Widget) {
     return (
       <div className="taPageRendererWidget">
