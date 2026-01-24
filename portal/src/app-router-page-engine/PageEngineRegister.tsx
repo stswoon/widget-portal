@@ -10,6 +10,9 @@ class PageEngineRegister {
   get<T extends void | object>(name: string): ComponentType<T> | undefined {
     return this.#widgets.get(name) as ComponentType<T> | undefined
   }
+
+  //WA for PageEngineRenderWidget.tsx 52:10  error  Error: Cannot create components during render
+  W = this.#widgets;
 }
 
 export const PAGE_ENGINE_REGISTER = new PageEngineRegister();
